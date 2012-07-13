@@ -1,0 +1,3 @@
+The purpose of this package is to learn how to program in Python, using the MVC 
+structures and practices that are generically used throughout the web programming
+community.
