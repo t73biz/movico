@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
-from application.controllers.PostController import PostController
+from core.itty import *
 
-pc = PostController()
-pc.test()
+@get('/')
+@get('/home')
+def index(request):
+    from application.controllers.PageController import PageController
+    page = PageController()
+    content = page.display('home')
+    return content
+    
+run_itty()

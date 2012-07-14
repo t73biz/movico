@@ -1,10 +1,19 @@
 # -*- coding: utf-8 -*-
-import BaseObject
+from core.views import Pyratemp
+import application.config.config as cfg
 
-class View(BaseObject):
+class View():
     """Base View Class for all Views"""
 
-    name = ""
-
-    def __init__(self, name):
-        self.name = name
+    def render(self, layout, view):
+        """
+        Render method for pages.
+        """
+                
+        viewTemplate = Pyratemp.Template(filename=view, filepath=cfg.APP_ROOT + '/views/pages/')
+        viewResult = viewTemplate()
+        
+        layoutTemplate = Pyratemp.Template(filename=layout, filepath=cfg.APP_ROOT + '/views/layouts/')
+        layoutResult = layoutTemplate(content_for_layout=viewResult)
+        
+        return layoutResult

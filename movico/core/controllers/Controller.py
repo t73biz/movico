@@ -6,6 +6,8 @@ class Controller():
         Base Controller Class for all Controllers
     """
     uses = []
+    
+    layout = 'default.html'
 
     def __init__(self):
         pass
